@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This is a fictional resume about Sally Student">
+    <title>Sally Student - Resume</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="application-root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+    <script type="text/babel">
+        function Link(props){
+            return (
+                <a href={props.src} >{props.text}</a>
+            );
+        }
+        function H1(props){
+            return <h1>{props.text}</h1>
+        }
+        function Paragraph(props){
+            return <p>{props.text}</p>
+        }
+        function ListItem(props){
+            return (
+                <li>{props.text}</li>
+            );
+        }
+        function UList(props){
+            return (
+                <ul>{props.children}</ul>
+            );
+        }
+        function Nav(props) {
+            return (
+                <nav>
+                    <UList>
+                        <ListItem text={<Link src="#education" text="Education" />}/>
+                        <ListItem text={<Link src="#employment" text="Employment" />}/>
+                        <ListItem text={<Link src="#contact" text="Contact" />}/>
+                    </UList>
+                </nav>
+            );
+        }
+        function Header(props){
+            return (
+                <header>
+                    <H1 text="Sally Student"/>
+                    <Paragraph text="Personal Resume"/>
+                </header>
+            );
+        }
+        function Main(props){
+            return (<main>
+      <section>
+        <header>
+          <h2>Education</h2>
+        </header>
+        <h3>Bachelor Degree in Computer Science</h3>
+        <ul>
+          <li>University : Staten Island Community College</li>
+          <li>Gratduated : 2011</li>
+        </ul>
+      </section>
+      <section>
+        <header>
+          <h2>Employment</h2>
+        </header>
+        <h3>Google</h3>
+         <ul>
+          <li>Junior Web Developer</li>
+          <li>06.2012-12.2017</li>
+          <li>Work with other team members to develop and maintain multiple websites</li>
+        </ul>
+        <h3>Facebook</h3>
+        <ul>
+          <li>Social Media Marketing</li>
+          <li>01.2018 - Current</li>
+          <li>Help on the daily basis with advertising and social media marketing.</li>
+        </ul>
+      </section>
+      <section>
+        <header>
+          <h2>Contact</h2>
+        </header>
+        <p>Sally Joe</p>
+        <address>
+          <a href="mailto:info@contact.me" target="_blank">Email Me</a>
+          <a href="tel:+1-303-499-7111" target="_blank">+1 (303) 499-7111</a>
+        </address>
+        <img 
+        src="https://ia.media-imdb.com/images/M/MV5BMTY5NzE3NzU3MF5BMl5BanBnXkFtZTgwMjg0NTQ5MDE@._V1_UX214_CR0,0,214,317_AL_.jpg" alt="Sally profile picture"/>
+      </section>
+    </main>);
+        }
+        function Footer(props){
+            return <footer>
+                    <Paragraph text="Copyright 2019 Sally Student"/>
+                </footer>
+        }
+        function App(props){
+            return (
+                <div>
+                    <Nav />
+                    <Header />
+                    <Main />
+                    <Footer />
+                </div>
+            );
+        }
+      // Nested elements inside the App.
+      ReactDOM.render(
+        <App /> ,
+        document.querySelector('#application-root')
+      );
+    </script>
+</body>
+
+</html>
